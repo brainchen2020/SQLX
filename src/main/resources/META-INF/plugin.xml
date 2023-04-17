@@ -1,0 +1,127 @@
+<!-- Copyright 2000-2023 JetBrains s.r.o. and other contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. -->
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+
+<idea-plugin>
+
+  <!-- Unique id for this plugin. Must stay constant for the life of the plugin. -->
+  <id>org.sqlx</id>
+
+  <!-- Text to display as name on Settings | Plugin page -->
+  <name>SQL X</name>
+
+  <!-- Indicate this plugin can be loaded in all IntelliJ Platform-based products. -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <!-- Text to display as description on Settings | Plugin page -->
+  <description>
+    <![CDATA[
+# SQL X
+Help you write complex SQL faster. <br> Power by AI<br>
+
+## Quickstart
+
+Step 1: Save your Database Table Creation Statements file when you this plugin downloaded first time. <br><br>
+Step 2: Once your table structure saved, Ask it anything to create SQLs base on your own tables. <br><br>
+Like: <br>
+    `find users that order price larger than 500 last 3 days` <br><br>
+
+Press "Enter" key then wait for SQL inject to your current cursor position.<br><br>
+
+
+    ]]>
+  </description>
+  <change-notes>
+    <![CDATA[
+      <ul>
+        <li><b>1.0.0</b> Release Plugin.</li>
+      </ul>
+    ]]>
+  </change-notes>
+
+  <!-- Text to display as company information on Settings | Plugin page -->
+  <vendor url="1067616452@qq.com">SQL X plugin</vendor>
+
+  <!-- Declare the default resource location for localizing menu strings -->
+  <resource-bundle>messages.BasicActionsBundle</resource-bundle>
+
+  <actions>
+    <!--
+      See https://plugins.jetbrains.com/docs/intellij/basic-action-system.html#registering-actions
+      for information about the elements and attributes used for actions and groups.
+
+      This <action> element adds a static menu item in first position of the Tools menu that shows PopupDialogAction.
+      Note this element has no text or description attributes because translations for them are given
+      by action-id in the resource-bundle.
+      An <override-text> element is also used for demonstration purposes to show alternate text and description strings
+      for this action's entries in the MainMenu. (Which includes the ToolsMenu. Try commenting out the override-text
+      element and see how the menu text changes.) The alternate text and description attributes do not
+      appear here because they are defined by action-id in the resource-bundle.
+    -->
+<!--    <action id="org.intellij.sdk.action.PopupDialogAction" class="org.intellij.sdk.action.PopupDialogAction"-->
+<!--            text="Action Basics Plugin: Pop Dialog Action" description="SDK action example"-->
+<!--            icon="SdkIcons.Sdk_default_icon">-->
+<!--      <add-to-group group-id="ToolsMenu" anchor="first"/>-->
+<!--      <override-text place="MainMenu" text="Pop Dialog Action"/>-->
+<!--      <keyboard-shortcut first-keystroke="alt K" keymap="$default"/>-->
+<!--      <mouse-shortcut keystroke="control button3 doubleClick" keymap="$default"/>-->
+<!--    </action>-->
+<!--    &lt;!&ndash;-->
+<!--      All of the following menu groups add the action PopupDialogAction to menus in different ways.-->
+<!--      Note that even though these groups reuse the same action class, in each use the action ids are unique.-->
+
+<!--      GroupedActions demonstrates declaring an action group using the default ActionGroup implementation provided by the-->
+<!--      IntelliJ Platform framework. (Note the lack of a group "class" attribute.) GroupedActions gets inserted after-->
+<!--      PopupDialogAction in the Tools menu. Because the group's implementation is default, it cannot impose-->
+<!--      enable/disable conditions. Instead it must rely on the conditions imposed by the parent menu where it is inserted.-->
+<!--      It declares one action in the group.-->
+<!--    &ndash;&gt;-->
+<!--    <group id="org.intellij.sdk.action.GroupedActions"-->
+<!--           text="Static Grouped Actions" description="SDK statically grouped action example"-->
+<!--           popup="true" icon="SdkIcons.Sdk_default_icon">-->
+<!--      <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="org.intellij.sdk.action.PopupDialogAction"/>-->
+<!--      <action id="org.intellij.sdk.action.GroupPopDialogAction" class="org.intellij.sdk.action.PopupDialogAction"-->
+<!--              text="A Group Action" description="SDK static grouped action example"-->
+<!--              icon="SdkIcons.Sdk_default_icon">-->
+<!--      </action>-->
+<!--    </group>-->
+<!--    &lt;!&ndash;-->
+<!--      CustomDefaultActionGroup demonstrates declaring an action group based on a ActionGroup class supplied by this-->
+<!--      plugin. This group is to be inserted atop the Editor Popup Menu. It declares one action in the group.-->
+<!--      The group and action implementations are internationalized, so their declarations do not use the text or-->
+<!--      description attributes. Instead, the information is defined in the BasicActionsBundle.-->
+<!--    &ndash;&gt;-->
+<!--    <group id="org.intellij.sdk.action.CustomDefaultActionGroup"-->
+<!--           class="org.intellij.sdk.action.CustomDefaultActionGroup"-->
+<!--           popup="true">-->
+<!--      <add-to-group group-id="EditorPopupMenu" anchor="first"/>-->
+<!--      <action id="org.intellij.sdk.action.CustomGroupedAction" class="org.intellij.sdk.action.PopupDialogAction"-->
+<!--              icon="SdkIcons.Sdk_default_icon"/>-->
+<!--    </group>-->
+<!--    &lt;!&ndash;-->
+<!--      DynamicActionGroup demonstrates declaring an action group without a static action declaration.-->
+<!--      An action is added to the group programmatically in the DynamicActionGroup implementation.-->
+<!--    &ndash;&gt;-->
+<!--    <group id="org.intellij.sdk.action.DynamicActionGroup" class="org.intellij.sdk.action.DynamicActionGroup"-->
+<!--           popup="true" text="Dynamically Grouped Actions" description="SDK dynamically grouped action example"-->
+<!--           icon="SdkIcons.Sdk_default_icon">-->
+<!--      <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="org.intellij.sdk.action.GroupedActions"/>-->
+<!--    </group>-->
+
+
+  </actions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+    <applicationService serviceImplementation="org.sqlx.MyPluginSettings"></applicationService>
+    <toolWindow id="SQLX"
+                canCloseContents="false"
+                anchor="right"
+                factoryClass="org.sqlx.MyPluginToolWindowFactory" >
+
+    </toolWindow>
+
+  </extensions>
+
+
+
+</idea-plugin>
