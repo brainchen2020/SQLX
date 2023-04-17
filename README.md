@@ -14,3 +14,14 @@ Press "Enter" key then wait for SQL inject to your current cursor position.<br><
 ## Capture
 
 <img src="doc/screenshot_f37fe138-a6cc-47cf-8d4e-4e688bed4ed8.png" />
+
+
+## Install 
+1.[distributions](build%2Fdistributions) 
+built the latest package, you download this package then "Install Plugin from Disk"  
+
+
+2.Or Search in Marketplace "SQLX"
+
+
+
