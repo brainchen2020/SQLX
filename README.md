@@ -10,3 +10,7 @@ Like: <br>
 
 Press "Enter" key then wait for SQL inject to your current cursor position.<br><br>
 
+
+## Capture
+
+<img src="doc/screenshot_f37fe138-a6cc-47cf-8d4e-4e688bed4ed8.png" />
